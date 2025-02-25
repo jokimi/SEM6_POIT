@@ -1,0 +1,4 @@
+dotnet --version
+dotnet publish -c Release -o ../asp01_published
+dotnet asp01.dll
+asp01.exe

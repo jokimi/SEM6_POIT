@@ -1,0 +1,7 @@
+D:\BSTU\6 sem\ПИС\Лабы\1\asp01_published\asp01.exe
+D:\BSTU\6 sem\ПИС\Лабы\1\asp01_published\appsettings.Development.json
+D:\BSTU\6 sem\ПИС\Лабы\1\asp01_published\appsettings.json
+D:\BSTU\6 sem\ПИС\Лабы\1\asp01_published\asp01.dll
+D:\BSTU\6 sem\ПИС\Лабы\1\asp01_published\asp01.deps.json
+D:\BSTU\6 sem\ПИС\Лабы\1\asp01_published\asp01.runtimeconfig.json
+D:\BSTU\6 sem\ПИС\Лабы\1\asp01_published\asp01.pdb

@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\download\berners-lee.jpg" />
+    <Content Remove="wwwroot\download\chomsky.jpg" />
+    <Content Remove="wwwroot\download\codd.jpg" />
+    <Content Remove="wwwroot\download\dijkstra.jpg" />
+    <Content Remove="wwwroot\download\knuth.jpg" />
+    <Content Remove="wwwroot\download\neumann.jpg" />
+    <Content Remove="wwwroot\download\torvalds.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\berners-lee.jpg" />
+    <None Include="wwwroot\chomsky.jpg" />
+    <None Include="wwwroot\codd.jpg" />
+    <None Include="wwwroot\dijkstra.jpg" />
+    <None Include="wwwroot\download\berners-lee.jpg" />
+    <None Include="wwwroot\download\chomsky.jpg" />
+    <None Include="wwwroot\download\codd.jpg" />
+    <None Include="wwwroot\download\dijkstra.jpg" />
+    <None Include="wwwroot\download\knuth.jpg" />
+    <None Include="wwwroot\download\neumann.jpg" />
+    <None Include="wwwroot\download\torvalds.jpg" />
+    <None Include="wwwroot\knuth.jpg" />
+    <None Include="wwwroot\neumann.jpg" />
+    <None Include="wwwroot\torvalds.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\dal03\dal03.csproj" />
+  </ItemGroup>
+
+</Project>

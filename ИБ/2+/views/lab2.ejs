@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>lab02</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div>
+    <h3>Турецкий алфавит</h3>
+    <p>Всего символов: <%= turkish.symbolsCount %></p>
+    <p>Энтропия турецкого алфавита: <%= turkish.entropy %> бит</p>
+
+    <h3>Русский алфавит</h3>
+    <p>Всего символов: <%= russian.symbolsCount %></p>
+    <p>Энтропия русского алфавита: <%= russian.entropy %> бит</p>
+
+    <h3>Бинарный турецкий алфавит</h3>
+    <p>Всего символов: <%= binaryTur.symbolsCount %></p>
+    <p>Энтропия бинарного алфавита: <%= binaryTur.entropy %> бит</p>
+
+    <h3>Бинарный русский алфавит</h3>
+    <p>Всего символов: <%= binaryRus.symbolsCount %></p>
+    <p>Энтропия бинарного алфавита: <%= binaryRus.entropy %> бит</p>
+
+    <hr/>
+    <h3>Количество информации</h3>
+    <p>В строке на турецком (Kozeka Elizaveta Maksimovna): <%= informationCountTurkish %></p>
+    <p>В строке на русском (Козека Елизавета Максимовна): <%= informationCountRussian %></p>
+    <p>В бинарной строке: <%= informationCountBinaryTur %></p>
+
+    <h3>Количество информации при ошибочной передаче (бинарный)</h3>
+    <p>p = 0.1: <%= entropyWithError.informationCountCase1 %></p>
+    <p>p = 0.5: <%= entropyWithError.informationCountCase2 %></p>
+    <p>p = 1: <%= entropyWithError.informationCountCase3 %></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+{
+    "query": "query { getFaculties { FACULTY FACULTY_NAME } }"
+}
+
+{
+    "query": "query { getFaculties(FACULTY: \"ТОВ\") { FACULTY FACULTY_NAME } }"
+}
+
+{
+    "query": "query { getTeachers { TEACHER TEACHER_NAME PULPIT } }"
+}
+
+{
+    "query": "query { getTeachers(TEACHER: \"НВРВ\") { TEACHER TEACHER_NAME PULPIT } }"
+}
+
+{
+    "query": "query { getPulpits { PULPIT PULPIT_NAME FACULTY } }"
+}
+
+{
+    "query": "query { getPulpits(PULPIT: \"ИСиТ\") { PULPIT PULPIT_NAME FACULTY } }"
+}
+
+{
+    "query": "query { getSubjects { SUBJECT SUBJECT_NAME PULPIT } }"
+}
+
+{
+    "query": "query { getSubjects(SUBJECT: \"ООП\") { SUBJECT SUBJECT_NAME PULPIT } }"
+}
+
+{
+    "query": "mutation { setFaculty(FACULTY: \"НФ\", FACULTY_NAME: \"новый факультет\") { FACULTY FACULTY_NAME } }"
+}
+
+{
+    "query": "mutation { setTeacher(TEACHER: \"ИВНВ\", TEACHER_NAME: \"Иванов Иван Иванович\", PULPIT: \"ИСиТ\") { TEACHER TEACHER_NAME PULPIT } }"
+}
+
+{
+    "query": "mutation { setPulpit(PULPIT: \"НК\", PULPIT_NAME: \"новая кафедра\", FACULTY: \"ИДиП\") { PULPIT PULPIT_NAME FACULTY } }"
+}
+
+{
+    "query": "mutation { setSubject(SUBJECT: \"НП\", SUBJECT_NAME: \"Новый предмет\", PULPIT: \"ИСиТ\") { SUBJECT SUBJECT_NAME PULPIT } }"
+}
+
+{
+    "query": "mutation { delFaculty(FACULTY: \"НФ\") }"
+}
+
+{
+    "query": "mutation { delTeacher(TEACHER: \"ИВНВ\") }"
+}
+
+{
+    "query": "mutation { delPulpit(PULPIT: \"НК\") }"
+}
+
+{
+    "query": "mutation { delSubject(SUBJECT: \"НП\") }"
+}
+
+{
+    "query": "query { getTeachersByFaculty(FACULTY: \"ИДиП\") { FACULTY TEACHERS { TEACHER TEACHER_NAME PULPIT } } }"
+}
+
+{
+    "query": "query { getSubjectsByFaculties(FACULTY: \"ИДиП\") { FACULTY SUBJECTS { SUBJECT SUBJECT_NAME PULPIT } } }"
+}

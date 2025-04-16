@@ -1,0 +1,20 @@
+[
+    { "error": 0, "message": "Not found.", "statusCode": 404 },
+    { "error": 1, "message": "Invalid method", "statusCode": 405 },
+    { "error": 2, "message": "Unknown error", "statusCode": 500 },
+    {
+      "error": 3,
+      "message": "[OBJECT] doesn't match [TABLE] or this [ID] is already exists",
+      "statusCode": 404
+    },
+    {
+      "error": 4,
+      "message": "[OBJECT] doesn't match [TABLE]",
+      "statusCode": 404
+    },
+    {
+      "error": 5,
+      "message": "[OBJECT] doesn't match [TABLE] or [OBJECT] doesn't exists",
+      "statusCode": 404
+    }
+]

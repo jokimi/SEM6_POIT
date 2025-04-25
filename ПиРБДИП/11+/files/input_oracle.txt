@@ -1,0 +1,5 @@
+19,Product 1,1,10,Description 1,image1.jpg,5,01-01-2024
+20,Product 2,2,15,Description 2,image2.jpg,9,02-01-2024
+21,Product 3,1,30,Description 3,image3.jpg,2,02-07-2025
+22,Product 4,3,22,Description 4,image4.jpg,0,02-07-2025
+23,Product 5,2,12,Description 5,image5.jpg,3,02-07-2025

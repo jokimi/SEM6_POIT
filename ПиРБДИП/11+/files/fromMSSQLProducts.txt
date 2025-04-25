@@ -1,0 +1,12 @@
+product_id,product_name,category_id,price,description,image_url,quantity,date
+1,Джинсы,1,60,Классические джинсы синего цвета,https://example.com/images/jeans.jpg,9,2024-12-12
+6,Кофта с капюшоном,6,50,Мужская кофта серого цвета с капюшоном,https://example.com/images/hoodie.jpg,12,2024-04-19
+7,Штаны спортивные,1,50,Спортивные штаны черного цвета,https://example.com/images/sports-pants.jpg,20,2024-12-31
+9,Рубашка с длинными рукавами,2,35,Женская рубашка с длинными рукавами,https://example.com/images/long-sleeve-shirt.jpg,10,2024-03-08
+10,Рубашка с короткими рукавами,2,25,Мужская рубашка с короткими рукавами,https://example.com/images/short-sleeve-shirt.jpg,18,2024-07-06
+12,Футболка поло,3,20,Женская футболка поло с короткими рукавами,https://example.com/images/polo-tshirt.jpg,12,2024-10-17
+14,Макси-юбка,4,50,Женская макси-юбка с цветочным принтом,https://example.com/images/maxi-skirt.jpg,5,2024-02-02
+16,Куртка ветровка,5,80,Женская ветровка с капюшоном,https://example.com/images/windbreaker-jacket.jpg,13,2024-05-09
+17,Кофта с высоким воротником,6,40,Мужская кофта с высоким воротником,https://example.com/images/turtleneck-sweater.jpg,20,2024-09-01
+18,Кофта с карманами,6,30,Женская кофта с карманами,https://example.com/images/pocket-sweater.jpg,18,2024-04-29
+22,Худи,6,40,Мужская худи зеленого цвета,https://example.com/images/hoodie.jpg,48,2024-02-13

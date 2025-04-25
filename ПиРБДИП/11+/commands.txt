@@ -1,0 +1,18 @@
+Server=DESKTOP-3SMK9QM;Database=CHAIN_STORES;Trusted_Connection=True;
+
+select * from dbo.SelectDataFunction('2024-01-01', '2024-12-31');
+
+CREATE OR REPLACE TABLE "dbo"."toMSSQLProducts" (
+"product_id" int,
+"product_name" varchar(200),
+"category_id" int,
+"price" int,
+"description" varchar(255),
+"image_url" varchar(200),
+"quantity" int,
+"date" date
+)
+
+sqlldr KEM/kem@ORCLPDB1 control=/loader.ctl
+
+docker cp input_oracle.txt 72e79410c2c6:/input_oracle.txt

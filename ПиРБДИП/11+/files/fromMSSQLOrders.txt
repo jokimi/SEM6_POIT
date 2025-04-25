@@ -1,0 +1,4 @@
+order_id,customer_id,order_date,total_amount,status_id
+6,2,2024-11-06,50,2
+7,1,2024-11-08,40,2
+8,1,2024-11-08,40,2

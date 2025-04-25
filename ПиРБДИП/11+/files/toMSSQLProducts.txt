@@ -1,0 +1,6 @@
+product_id,product_name,category_id,price,description,image_url,quantity,date
+25,product1,1,60,desc1,https://example.com/images/pr1.jpg,9,2024-12-12
+26,product2,6,50,desc2,https://example.com/images/pr2.jpg,12,2024-04-19
+27,product3,1,50,desc3,https://example.com/images/pr3.jpg,20,2024-12-31
+28,product4,2,35,desc4,https://example.com/images/pr4.jpg,10,2024-03-08
+29,product5,2,25,desc5,https://example.com/images/pr5.jpg,18,2024-07-06

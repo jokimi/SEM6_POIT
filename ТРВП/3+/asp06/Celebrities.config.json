@@ -1,0 +1,6 @@
+{
+    "Celebrities": {
+        "PhotosFolder": "D:\\BSTU\\6 sem\\ТРВП\\Лабы\\3\\asp06\\wwwroot\\photos",
+        "ConnectionString": "Data Source=DESKTOP-3SMK9QM;Initial Catalog=LEC;Integrated Security=True;TrustServerCertificate=True"
+    }
+}

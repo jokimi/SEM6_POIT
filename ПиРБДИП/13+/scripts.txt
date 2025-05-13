@@ -1,0 +1,100 @@
+use chain_stores
+
+-- 3. Создать коллекции по варианту. Добавить данные в коллекции. Изменить и обновить несколько элементов коллекций.
+
+db.products.insertOne({ product: "Джинсы", price: 110 })
+db.products.insertMany([
+    { product: "Рубашка поло", price: 40 },
+    { product: "Куртка кожаная", price: 125 },
+    { product: "Куртка ветровка", price: 80 },
+    { product: "Кардиган вязаный", price: 50 },
+    { product: "Водолазка", price: 30 },
+    { product: "Брюки", price: 70 },
+    { product: "Гетры", price: 15 },
+    { product: "Пальто", price: 120 },
+    { product: "Штаны спортивные", price: 45 }
+])
+db.products.updateOne(
+    { product: "Гетры" },
+    { $set: { price: 18 } }
+)
+db.products.updateMany(
+    { price: { $lt: 40 } },
+    { $inc: { price: 1 } }
+)
+db.orders.insertOne({date: new Date('2025-05-02'), products: ["Водолазка", "Брюки"], amount: 101, status: "Оформлен"})
+db.orders.insertMany([
+    {date: new Date('2025-05-02'), products: ["Джинсы", "Пальто"], amount: 230, status: "Доставлен", quantity: 50 },
+    {date: new Date('2025-04-26'), products: ["Кардиган вязаный"], amount: "50", status: "Отменен"},
+    {date: new Date('2025-03-19'), products: ["Гетры", "Штаны спортивные"], amount: 64, status: "Оформлен"},
+    {date: new Date('2025-04-05'), products: ["Рубашка поло"], amount: 40, status: "Доставлен"}
+])
+db.orders.updateOne(
+    { products: ["Водолазка", "Брюки"] },
+    { $set: { date: new Date('2025-05-10') } }
+)
+db.orders.updateMany(
+    { amount: { $gte: 70, $lte: 110 } },
+    { $inc: { amount: 5 } }
+)
+
+-- 4. Произвести выборку элементов, используя условные операции, операторы работы с массивами, операторы $exists, $type, $regex.
+
+db.orders.find({ status: { $ne: "Доставлен" } })
+db.orders.find({ products: { $size: 1 } })
+db.orders.find({ quantity: { $exists: true } })
+db.orders.find({ amount: { $type: "number" } })
+db.products.find({ product: { $regex: /^Куртка/ } })
+
+-- 5. Произвести выборку элементов в своей базе данных, используя проекции.
+
+db.orders.find({}, { products: 1, _id: 0, amount: 1 })
+
+-- 6. С помощью функции count() получить число всех элементов любой коллекции, а также число элементов с заданным фильтром.
+
+db.products.countDocuments({})
+db.orders.countDocuments({ products: { $size: 2 } })
+
+-- 7. Продемонстрировать использование методов limit() и skip().
+
+db.products.find().skip(2).limit(3)
+
+-- 8. Создать запрос с функцией distinct().
+
+db.orders.distinct("status")
+
+-- 9. Используя метод aggregate(), продемонстрировать работу агрегатных операций.
+
+db.orders.aggregate([
+    { $group: { _id: null, totalAmount: { $sum: "$amount" } } }
+])
+db.orders.aggregate([
+    { $group: { _id: null, averageAmount: { $avg: "$amount" } } }
+])
+db.orders.aggregate([
+    { $group: { _id: null, maxAmount: { $max: "$amount" }, minAmount: { $min: "$amount" } } }
+])
+
+-- 10. Продемонстрировать использование пустого и непустого фильтра в секции match, группировку по нескольким ключам.
+
+db.orders.aggregate([
+    { $match: {} },
+    { $group: { _id: null, totalOrders: { $count: {} } } }
+])
+db.orders.aggregate([
+    { $match: { date: { $gte: new Date('2025-03-15'), $lte: new Date('2025-04-15') } } },
+    { $project: { _id: 0, date: 1, products: 1, price: 1 } }
+])
+db.orders.aggregate([
+    {
+        $group: {
+            _id: {
+                date: { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
+                status: "$status"
+            },
+            totalAmount: { $sum: "$amount" },
+            count: { $sum: 1 }
+        }
+    },
+    { $sort: { totalAmount: -1 }}
+])

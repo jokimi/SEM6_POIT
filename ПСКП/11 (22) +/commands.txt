@@ -1,0 +1,12 @@
+-- Центр сертификации (добавить в mmc)
+openssl genrsa -des3 -out CA.key 2048
+
+openssl req -x509 -new -key CA.key -days 700 -sha256 -out CA.crt
+
+-- Ресурс (формирует запрос на сертификацию)
+openssl genrsa -out LAB.key 2048
+
+openssl req -new -key LAB.key -out LAB.csr -sha256 -config LAB.cfg
+
+-- Центр подписывает сертификат для ресурса
+openssl x509 -req -in LAB.csr -CA CA.crt -CAkey CA.key -CAcreateserial -out LAB.crt -days 365 -sha256 -extensions v3_req -extfile LAB.cfg

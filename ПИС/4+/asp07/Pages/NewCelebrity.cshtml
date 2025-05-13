@@ -1,0 +1,45 @@
+﻿@page
+@model NewCelebrityModel
+@{
+    ViewData["Title"] = "Добавить знаменитость";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div class="add-celebrity-form">
+        <img src="~/photos/diamond.jpg" class="add-button-image">
+
+        <div class="form-group">
+            <label asp-for="Celebrity.FullName"></label>
+            <input asp-for="Celebrity.FullName" class="form-control" required />
+            <span asp-validation-for="Celebrity.FullName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Celebrity.Nationality"></label>
+            <input asp-for="Celebrity.Nationality" class="form-control" required />
+            <span asp-validation-for="Celebrity.Nationality" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label id="photoPathLabel">Фото не выбрано</label>
+            <input asp-for="PhotoFile" type="file" class="form-control-file" id="photoInput" required />
+            <span asp-validation-for="PhotoFile" class="text-danger"></span>
+        </div>
+
+        <div class="form-buttons">
+            <a asp-page="/Celebrities" class="btn btn-outline-danger">Отмена</a>
+            <button type="submit" class="btn btn-primary">Далее</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.getElementById('photoInput').addEventListener('change', function() {
+            if (this.files.length > 0) {
+                document.getElementById('photoPathLabel').textContent = this.files[0].name;
+            }
+        });
+    </script>
+}

@@ -1,0 +1,31 @@
+﻿@page
+@model ConfirmCelebrityModel
+@{
+    ViewData["Title"] = "Подтверждение добавления";
+}
+
+<div class="confirm-celebrity-form">
+    <img src="/temp/@Model.TempFilePath" class="preview-image">
+
+    <div class="preview-info">
+        <div class="preview-field">
+            <label>Имя:</label>
+            <span>@Model.FullName</span>
+        </div>
+
+        <div class="preview-field">
+            <label>Национальность:</label>
+            <span>@Model.Nationality</span>
+        </div>
+    </div>
+
+    <div class="form-buttons">
+        <a asp-page="/Celebrities" class="btn btn-outline-danger">Отмена</a>
+        <form method="post">
+            <input type="hidden" name="tempFilePath" value="@Model.TempFilePath" />
+            <input type="hidden" name="fullName" value="@Model.FullName" />
+            <input type="hidden" name="nationality" value="@Model.Nationality" />
+            <button type="submit" class="btn btn-success">Подтвердить</button>
+        </form>
+    </div>
+</div>

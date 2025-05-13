@@ -1,0 +1,27 @@
+﻿@page
+@model CelebrityModel
+@{
+    ViewData["Title"] = Model.Celebrity?.FullName ?? "Знаменитость";
+}
+
+@if (Model.Celebrity != null)
+{
+        <div class="celebrity-detail">
+            <img src="@($"{Model.PhotosRequestPath}/{System.IO.Path.GetFileName(Model.Celebrity.ReqPhotoPath)}")" 
+                 class="celebrity-photo-large" />
+            <h1>@Model.Celebrity.FullName</h1>
+            <p>Национальность: @Model.Celebrity.Nationality</p>
+
+            <h3>События:</h3>
+            <ul class="lifeevents-list">
+            @foreach (var lifeevent in Model.Lifeevents)
+            {
+                        <li>@lifeevent.Date.ToShortDateString(): @lifeevent.Description</li>
+            }
+            </ul>
+        </div>
+}
+else
+{
+        <div class="alert alert-danger">Знаменитость не найдена</div>
+}

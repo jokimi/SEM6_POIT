@@ -1,0 +1,5 @@
+{
+    "PhotosRequestPath": "/Photos",
+    "PhotosFolder": "/photos",
+    "ConnectionString": "Data Source=DESKTOP-3SMK9QM;Initial Catalog=LEC;Integrated Security=True;TrustServerCertificate=True"
+}

@@ -1,0 +1,25 @@
+﻿@page
+@using System.IO
+@model asp07.Pages.CelebritiesModel
+@{
+    ViewData["Title"] = "Все знаменитости";
+}
+
+<div class="photo-grid">
+    <div class="photo-item">
+        <a asp-page="/NewCelebrity">
+            <img src="~/photos/diamond.jpg" alt="Добавить знаменитость" class="celebrity-photo" title="Добавить новую знаменитость"]>
+            <div class="celebrity-name">Добавить знаменитость</div>
+        </a>
+    </div>
+    @foreach (var celeb in Model.Celebrities)
+    {
+            <div class="photo-item">
+                <a asp-page="/Celebrity" asp-route-id="@celeb.Id">
+                    <img src="@($"{Model.PhotosRequestPath}/{System.IO.Path.GetFileName(celeb.ReqPhotoPath)}")"
+                         alt="@celeb.FullName" class="celebrity-photo" />
+                    <div class="celebrity-name">@celeb.FullName</div>
+                </a>
+            </div>
+    }
+</div>

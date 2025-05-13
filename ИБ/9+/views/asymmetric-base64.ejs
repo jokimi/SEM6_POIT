@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Lab09 - Асимметричные шифры</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <ul class="nav justify-content-center mt-4">
+            <li class="nav-item">
+                <a class="nav-link" href="/ascii">ASCII</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/base64">Base64</a>
+            </li>
+        </ul>
+        <form method="POST" action="/base64" class="mt-4">
+            <div class="form-group">
+                <label for="message">Введите сообщение:</label>
+                <input type="text" name="message" class="form-control" id="message" value="<%= message %>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Зашифровать</button>
+        </form>
+        <% if (message) { %>
+        <h5 class="text-center mt-4">Оригинальное сообщение: <%= message %></h5>
+        <h5 class="text-center mt-4">Приватный ключ</h5>
+        <p>{ <%= privateKey %> }</p>
+        <h5 class="text-center mt-4">Параметры публичного ключа</h5>
+        <p>n: <%= n %>, a: <%= a %></p>
+        <h5 class="text-center mt-4">Публичный ключ</h5>
+        <p>{ <%= publicKey %> }</p>
+        <h5 class="text-center mt-4">Зашифрованное сообщение (<%= encodingTime %>мс)</h5>
+        <p>{ <%= encrypted %> }</p>
+        <h5 class="text-center mt-4">Расшифрованное сообщение (<%= decodingTime %>мс)</h5>
+        <p><%= decrypted %></p>
+        <% } %>
+    </div>
+</body>    
+</html>

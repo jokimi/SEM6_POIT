@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Lab08 - RSA генератор</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style="display: block; width: 100%;">
+<ul class="nav justify-content-center mt-4">
+    <li class="nav-item">
+        <a class="nav-link active" href="/rsa">RSA</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/rc4">RC4</a>
+    </li>
+</ul>
+<div class="container w-25" style="margin: 0; display: block; width: 1440px;">
+    <h3 class="text-center mt-4 mb-4" style="width: 100%; display: block;">RSA</h3>
+    <form class="w-full" id="rsa_form" style="width: 100%; display: block;">
+        <div class="form-group">
+            <label for="length">Длина последовательности бит</label>
+            <input type="number" name="length" class="form-control" required id="length" style="width: 100%; display: block;">
+        </div>
+        <button type="submit" class="btn btn-primary">Сгенерировать</button>
+    </form>
+    <p id="rsaResult" class="mt-4"></p>
+</div>
+
+<script type="text/javascript">
+    const form = document.getElementById('rsa_form');
+    form.onsubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const jsonRequestData = {};
+        for (let [key, value] of formData) {
+            jsonRequestData[key] = value;
+        }
+        try {
+            const res = await fetch('/rsa', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonRequestData)
+            });
+            const paragraph = document.getElementById('rsaResult');
+            if (res.status === 200) {
+                const result = await res.json();
+                paragraph.innerHTML = `<strong>Результат:</strong><br>${JSON.stringify(result, null, 2)}`;
+            }
+            else {
+                paragraph.innerHTML = "Произошла ошибка при генерации";
+            }
+        }
+        catch (err) {
+            document.getElementById('rsaResult').innerHTML = "Ошибка запроса: " + err.message;
+        }
+    };
+</script>
+</body>
+</html>

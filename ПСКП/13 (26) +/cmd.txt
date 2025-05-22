@@ -1,0 +1,4 @@
+emsdk.bat install latest
+emsdk.bat activate latest
+emsdk_env.bat
+emcc -O3 -o code.wasm -s WASM=1 code.c --no-entry

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <p>sum(10, 3) =<span id="sum2"></span></p>
+    <p>sub(10, 3) =<span id="sub2"></span></p>
+    <p>mul(10, 3) =<span id="mul2"></span></p>
+    <script>
+        fetch('http://localhost:3000/code.wasm')
+            .then(response => response.arrayBuffer())
+            .then(bytes => WebAssembly.instantiate(bytes))
+            .then(result => {
+                console.log(result);
+                const { sum, mul, sub } = result.instance.exports;
+                sum2.innerHTML = sum(10, 3);
+                sub2.innerHTML = sub(10, 3);
+                mul2.innerHTML = mul(10, 3);
+            });
+    </script>
+</body>
+
+</html>

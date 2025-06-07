@@ -1,0 +1,9 @@
+{
+    "Celebrities": {
+        "PhotosRequestPath": "/photos",
+        "PhotosFolder": "wwwroot/Photos",
+        "TempPhotosFolder": "wwwroot/temp",
+        "ConnectionString": "Data Source=DESKTOP-3SMK9QM;Initial Catalog=LEC;Integrated Security=True;TrustServerCertificate=True",
+        "CountryCodesPath": "CountryCodes/CountryCodes.json"
+    }
+}

@@ -1,0 +1,34 @@
+﻿@model NewCelebrityModel
+@{
+    ViewData["Title"] = "Добавить знаменитость";
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+    <partial name="_CelebrityForm" model="Model" />
+</div>
+
+@section Scripts {
+    <script>
+        function validateFileExtension(input) {
+            const validExtensions = ['jpg', 'jpeg', 'png'];
+            const fileName = input.value.toLowerCase();
+            const isValid = validExtensions.some(ext => fileName.endsWith(ext));
+            if (!isValid) {
+                alert('Только JPG/PNG файлы разрешены');
+                input.value = '';
+            }
+        }
+    </script>
+}

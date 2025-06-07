@@ -1,0 +1,40 @@
+﻿@model DAL_Celebrity.Celebrity
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = Model.FullName;
+}
+
+<div class="celebrity-details">
+    <div class="celebrity-photo-container">
+    <img src="@($"{ViewBag.PhotosRequestPath}/{Model.ReqPhotoPath}")" alt="@Model.FullName" class="celebrity-photo-large">
+</div>
+    <div class="celebrity-info">
+        <h1>@Model.FullName</h1>
+        <p>Национальность: @Model.Nationality</p>
+        <div class="life-events">
+            <h3>События:</h3>
+            <ul>
+                @foreach (var lifeEvent in ViewBag.LifeEvents)
+                {
+                    <li>@lifeEvent.Date.ToShortDateString(): @lifeEvent.Description</li>
+                }
+            </ul>
+        </div>
+        <div class="wiki-links">
+            @if (Context.Items["WIKI"] is Dictionary<string, string> wikiLinks)
+            {
+                <h3>Ссылки на Википедию:</h3>
+                <ul>
+                    @foreach (var link in wikiLinks)
+                    {
+                        <li><a href="@link.Value" target="_blank">@link.Key</a></li>
+                    }
+                </ul>
+            }
+        </div>
+        <div class="actions">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Редактировать</a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Удалить</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿@using DAL_Celebrity
+@using asp08.Helpers
+@model asp08.Controllers.CelebritiesController.IndexModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Home";
+}
+
+<h2>Celebrities</h2>
+<div class="celebrities-grid">
+    <div class="celebrity-item">
+        <a asp-controller="Celebrities" asp-action="NewHumanForm" class="celebrity-link">
+            @Html.CelebrityPhoto(0, "New Celebrity", $"{Model.PhotosRequestPath}/NewCelebrity.jpg")
+            <div class="celebrity-name">Добавить знаменитость</div>
+        </a>
+    </div>
+    @foreach (var celebrity in Model.Celebrities)
+    {
+        <div class="celebrity-item">
+            <a asp-controller="Celebrities" asp-action="Human" asp-route-id="@celebrity.Id" class="celebrity-link">
+                @Html.CelebrityPhoto(celebrity.Id, celebrity.FullName, $"{Model.PhotosRequestPath}/{celebrity.ReqPhotoPath}")
+                <div class="celebrity-name">@celebrity.FullName</div>
+            </a>
+        </div>
+    }
+</div>
+<style>
+    .celebrities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .celebrity-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+
+    .celebrity-item:hover {
+        transform: scale(1.05);
+    }
+
+    .celebrity-name {
+        margin-top: 10px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .celebrity-link {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>

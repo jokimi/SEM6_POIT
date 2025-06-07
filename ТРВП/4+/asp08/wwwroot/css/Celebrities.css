@@ -1,0 +1,137 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.celebrities-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.celebrity-photo {
+    width: 235px;
+    height: 235px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin: 5px;
+}
+
+.celebrity-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.celebrity-photo-large {
+    max-width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.celebrity-details {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.celebrity-info {
+    flex: 1;
+}
+
+.life-events, .wiki-links {
+    margin-top: 20px;
+}
+
+.new-celebrity-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .celebrity-details {
+        flex-direction: column;
+    }
+
+    .celebrity-photo-large {
+        max-width: 100%;
+    }
+}
+
+.celebrities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.celebrity-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.celebrity-name {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.add-celebrity-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.add-button-image {
+    width: 235px;
+    height: 235px;
+    display: block;
+    margin: 0 auto 20px;
+    cursor: pointer;
+}
+
+.celebrity-detail {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.lifeevents-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.lifeevents-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.preview-image {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.confirm-details {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.confirm-actions {
+    display: flex;
+    gap: 10px;
+}
